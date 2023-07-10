@@ -72,5 +72,8 @@ span.currentCity {
 
 }
 
+img.currentType {
+    height: 10rem;
+}
 
 </style>
