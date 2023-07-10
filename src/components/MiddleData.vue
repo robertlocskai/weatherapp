@@ -12,15 +12,7 @@
 </template>
 
 <script>
-/*import ClearSky from "@/assets/images/clear_sky.svg"
-import FewClouds from "@/assets/images/few_clouds.svg"
-import Mist from "@/assets/images/mist.svg"
-import ScatteredClouds from "@/assets/images/scattered_clouds.svg"
-import ShowerRain from "@/assets/images/shower_rain.svg"
-import Rain from "@/assets/images/rain.svg"
-import Snow from "@/assets/images/snow.svg"
-import Thunderstorm from "@/assets/images/thunderstorm.svg"
-*/
+
 export default {
     name: "MiddleData",
     methods: {
@@ -29,7 +21,26 @@ export default {
             document.querySelector(".currentCity").innerHTML = data.name;
             var roundedDegree = Math.round(data.main.temp);
             document.querySelector(".currentDegree").innerHTML = roundedDegree + "°C";
-            
+            console.log(data);
+            if(data.weather[0].main == "Clouds") {
+                document.querySelector(".currentType").src = this.getImgUrl("scattered_clouds");
+            }
+            else if(data.weather[0].main == "Clear") {
+                document.querySelector(".currentType").src = this.getImgUrl("clear_sky");
+            }   
+            else if(data.weather[0].main == "Snow") {
+                document.querySelector(".currentType").src = this.getImgUrl("snow");
+            }
+            else if(data.weather[0].main == "Rain") {
+                document.querySelector(".currentType").src = this.getImgUrl("rain");
+            }   
+            else if(data.weather[0].main == "Thunderstorm") {
+                document.querySelector(".currentType").src = this.getImgUrl("thunderstorm");
+            }
+
+        },
+        getImgUrl(data) {
+            return require("@/assets/images/" + data + ".svg")
         }
     }
 }
