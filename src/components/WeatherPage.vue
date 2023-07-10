@@ -34,7 +34,7 @@ export default {
     data: () => {
         return {
             defaultCity: "Esztergom",
-            apiKey: "951ff289a6238752a9ea4d750c4151be",
+            apiKey: "**********************",
             apiUrl: "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
         }
     },
